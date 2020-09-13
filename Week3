@@ -1,0 +1,125 @@
+
+import random
+#Write a loop that prints "Hello World" five times
+hello = 0 
+
+while hello < 5:
+  hello += 1
+  print('Hello World')
+
+# Write code that asks the user to enter two numbers, then print out the smaller of the two numbers. (You will need an if statement to figure out which is the smallest)
+firstnum = input('Give me a number= ')
+scndnum = input('Give me a second number= ')
+
+if firstnum < scndnum:
+  print(firstnum)
+elif firstnum == scndnum:
+  print('They are equal.')
+else:
+  print(scndnum)
+
+#2) Write code that asks the user to enter three numbers, then print out the second largest of the three numbers 
+#(This will require some cleverness with if statements!)
+x = int(input('Give me 1st number= '))
+y = int(input('Give me 2nd number= '))
+z = int(input('Give me 3rd number= '))
+st = None
+nd = None
+rd = None
+if x > y: 
+  st = x
+  nd = y
+elif x < y:
+  nd = x
+  st = y
+
+if st > z:
+  if nd > z:
+    rd = z
+  elif nd < z:
+    rd = nd
+    nd = z
+elif st < z:
+  st = z
+  nd = x
+  rd = y
+print(nd)
+
+#Write a for loop that looks at the numbers [3, 2, 8, 9, 17, 24] and counts how many of them are even. (You will need a variable to keep count of how many even numbers you have seen. You should increase the variable by one each time the user enters an even number)
+e = 0
+l = [3, 2, 8, 9, 17, 24]
+for i in l:
+  if i%2 == 0:
+    e += 1
+
+print(e)
+
+
+#Write a loop that asks the user to enter five numbers and prints out how many of the numbers are even.
+s = 0
+k = []
+for b in range(5):
+  t = int(input("Input number please "))
+  k.append(t)
+
+for i in k:
+  if i%2 == 0:
+    s += 1
+
+print(s)
+
+#Write a loop that allows the user to keep entering as many numbers as they want to and then when they are done, print out how many of the numbers were even. One way to do this is to tell the user to enter -1 to signal that they are done, and then end when you see a -1.
+o = []
+while num != -1:
+  num = int(input('Insert as many numbers as you wish (insert -1 to stop): '))
+  o.append(num)
+  num 
+v = 0
+for i in o:
+  if i%2 == 0:
+    v += 1
+
+print(v)
+
+#Write a number guessing game. You should pick a number (assign it to a varaible in your code) and then repeatedly ask the user to guess the number. Tell the user is their guess is too high or too low, and end when the user correctly guesses your number.
+#6) Modify your guessing game so that it counts the number of tries that it takes the user to correclty guess the number.
+#7) It is kind of stupid to have to pick a number and write it in your code. In particular, this means that if you want to play the game more than once, you need to actually go and change the code ... Also, if the user sees your code, they will know exaclty what to guess.
+#A better way is to have Python pick a random number. By default, Python doesn't know how to pick a random number. Fortunately, someone already put together an explanation of how to pick random numbers, we can add this new capability to Python by "importing" the instructions that someone else wrote.
+
+d = random.randint(1,100)
+count = 1 
+while gs != d:
+  gs = int(input('Guess a number between 1-100: '))
+  if (gs == d):   
+    print("Congrats! Nice guess.")
+
+  else:
+    if gs < (d + 5) or gs < (d-5):
+      print('warm')
+    if gs > (d + 5) or gs > (d-5):
+      print('cold')
+    print( "try again.")
+    count += 1
+
+
+print("it took you " + str (count) + " guesses.")
+
+#8) You could modify your guessing game to say "getting closer" or "getting further away" (i.e., "warmer" or "colder") instead of "Too High" or "Too Low"
+
+d = random.randint(1,100)
+current = int(input("Guess a number between 1 and 100: "))
+if current == d:
+  print("Congrats! Nice guess.")
+else:
+  while current != d:
+    old = current
+    current = int(input("Enter a new guess: "))
+
+    if current == d:
+      print("Congrats! Nice guess.")
+    elif abs(d - old) > abs(d - current):
+      print("You are getting warmer, keep trying: ")
+    elif abs(d - old) < abs(d - current):
+      print("You are getting colder, keep trying: ")
+  
+
